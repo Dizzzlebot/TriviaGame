@@ -1,0 +1,19 @@
+body {
+    background-image: url(../images/background.png);
+    width: cover;
+    background-size: 100%;
+}
+h1 {
+    font-size: 75px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+}
+.centerItem {
+display: flex;
+flex-direction: column;
+justify-content: center;
+}
+
+.startbtn {
+    margin-top: 50px;
+}
