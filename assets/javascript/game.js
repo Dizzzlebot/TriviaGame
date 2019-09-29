@@ -1,5 +1,7 @@
 $(document).ready(function () {
 
+
+
     const questions = [
         {
             questions: "Which Greek philospher believed that wisdom comes from accepting there is much we don't know?",
@@ -41,23 +43,26 @@ $(document).ready(function () {
     let lost = 0;
     let timer;
 
+
     function nextQuestion() {
 
+        clearInterval(timer);
         const isQuestionOver = (questions.length - 1) === currentQuestion;
         $(".choices").empty();
         if (isQuestionOver) {
-            console.log('Game is over!!');
+            alert('Game is over!!');
         } else {
 
             currentQuestion++;
             loadQuestion();
+            clearInterval("timer");
         }
 
 
     }
 
     function timeUp() {
-        clearInterval();
+        clearInterval("timer");
 
         lost++;
         $(".choices").empty();
@@ -65,12 +70,14 @@ $(document).ready(function () {
     }
     // start a 30 second timer
     function countDown() {
+
         counter--;
 
         $('#time').html('Timer: ' + counter);
 
         if (counter === 0) {
             timeUp();
+            clearInterval("timer");
         }
     }
 
@@ -89,6 +96,7 @@ $(document).ready(function () {
         $("#time").html('Timer:' + counter);
         $("#quest").html(question);
         loadChoices();
+        clearInterval("timer");
     }
 
     function loadChoices() {
@@ -117,7 +125,7 @@ $(document).ready(function () {
 
         console.log('Yippie!!', selectedAnswer);
         nextQuestion()
-    });;
+    });
 
     $(".choices").empty();
     loadQuestion();
